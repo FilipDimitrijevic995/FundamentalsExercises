@@ -17,6 +17,17 @@ namespace FundamentalsExercises.ControlFlow
         */
         public void Exercise1()
         {
+            Console.Write("Enter a number between 1 and 10: ");
+            var input = Convert.ToInt32(Console.ReadLine());
+
+            if (input >= 1 && input <= 10)
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
         }
 
 
@@ -25,6 +36,14 @@ namespace FundamentalsExercises.ControlFlow
          */
         public void Exercise2()
         {
+            Console.Write("Enter a first number: ");
+            var num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter a second number: ");
+            var num2 = Convert.ToInt32(Console.ReadLine());
+
+            var max = (num1 > num2) ? num1 : num2;
+            Console.WriteLine("Maximum is: " + max);
         }
 
         /*
@@ -33,10 +52,20 @@ namespace FundamentalsExercises.ControlFlow
         */
         public void Exercise3()
         {
+            Console.Write("Please enter a width: ");
+            var width = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Please enter a height: ");
+            var height = Convert.ToInt32(Console.ReadLine());
+
+            var orientation = (width > height) ? ImageOrientation.Landscape : ImageOrientation.Portrait;
+            Console.WriteLine("Orientation is: " + orientation);
         }
 
         public enum ImageOrientation
         {
+            Landscape,
+            Portrait
         }
 
         /*
@@ -51,6 +80,27 @@ namespace FundamentalsExercises.ControlFlow
         */
         public void Exercise4()
         {
+            Console.Write("Enter the speed limit:");
+            var speedLimit = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter a car speed: ");
+            var carSpeed = Convert.ToInt32(Console.ReadLine());
+
+            if (carSpeed < speedLimit)
+                Console.WriteLine("Ok");
+            else
+            {
+                const int kmPerDemeritPoint = 5;
+                var demeritPoints = (carSpeed - speedLimit) / kmPerDemeritPoint;
+                if (demeritPoints > 12)
+                {
+                    Console.WriteLine("License suspended!!!");
+                }
+                else
+                {
+                    Console.WriteLine("Demerit points: " + demeritPoints);
+                }
+            }
         }
 
     }
